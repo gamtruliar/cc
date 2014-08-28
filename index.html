@@ -81,9 +81,12 @@ $("#stbt").click(function()
 	var mapp=$("#maxpoint").val();
 	tmpstr+="<tr>";
 	tmpstr+="<td>Total AP:</td>";
-	tmpstr+="<td>"+((mapp/bestc)*sumcostt)+"|"+(((mapp/bestc)*sumcostt)/$("#maxap").val()*1)+"</td>";
-	tmpstr+="<td>"+((mapp/(bestc*1.5))*sumcostt)+"|"+(((mapp/(bestc*1.5))*sumcostt)/$("#maxap").val()*1)+"(FT)</td>";
-	tmpstr+="<td>"+((mapp/(bestc*2.5))*sumcostt)+"|"+(((mapp/(bestc*2.5))*sumcostt)/$("#maxap").val()*1)+"(GFT)</td>";
+	var tap=((mapp/bestc)*sumcostt);
+	tmpstr+="<td>"+ceil(tap)+"|"+ceil(tap/$("#maxap").val()*1)+"</td>";
+	tap=((mapp/(bestc*1.5))*sumcostt);
+	tmpstr+="<td>"+ceil(tap)+"|"+ceil(tap/$("#maxap").val()*1)+"(FT)</td>";
+	tap=((mapp/(bestc*2.5))*sumcostt);
+	tmpstr+="<td>"+ceil(tap)+"|"+ceil(tap/$("#maxap").val()*1)+"(GFT)</td>";
 	tmpstr+="</tr>";
 	
 	
