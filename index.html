@@ -20,7 +20,10 @@
 </table>
 <div>
 最大/現有AP:<input type="text" id="maxap" value='60'/>
+<br>
 目標戰功:<input type="text" id="maxpoint" value='7000000'/>
+<br>
+隊伍倍率:<input type="text" id="maxpow" value='1'/>1+倍武(0.5+0.?+0.?+.....)
 <br>
 <button id='stbt'> Start</button>
 </div>
@@ -77,15 +80,15 @@ $("#stbt").click(function()
 		tmpstr+="</tr>";
 	}
 	tmpstr+="<tr><td>Total Cost:</td><td>"+sumcostt+"</td></tr>";
-	tmpstr+="<tr><td>Total Point:</td><td>"+bestc+"</td><td>"+(bestc*1.5)+"(FT)</td><td>"+(bestc*2.5)+"(GFT)</td></tr>";
+	tmpstr+="<tr><td>Total Point:</td><td>"+(bestc*$("#maxpow").val())+"</td><td>"+(bestc*$("#maxpow").val()*1.5)+"(FT)</td><td>"+(bestc*$("#maxpow").val()*2.5)+"(GFT)</td></tr>";
 	var mapp=$("#maxpoint").val();
 	tmpstr+="<tr>";
 	tmpstr+="<td>Total AP:</td>";
-	var tap=((mapp/bestc)*sumcostt);
+	var tap=((mapp/(bestc*$("#maxpow").val()))*sumcostt);
 	tmpstr+="<td>"+Math.ceil(tap)+"|"+Math.ceil(tap/$("#maxap").val()*1)+"</td>";
-	tap=((mapp/(bestc*1.5))*sumcostt);
+	tap=((mapp/(bestc*$("#maxpow").val()*1.5))*sumcostt);
 	tmpstr+="<td>"+Math.ceil(tap)+"|"+Math.ceil(tap/$("#maxap").val()*1)+"(FT)</td>";
-	tap=((mapp/(bestc*2.5))*sumcostt);
+	tap=((mapp/(bestc*$("#maxpow").val()*2.5))*sumcostt);
 	tmpstr+="<td>"+Math.ceil(tap)+"|"+Math.ceil(tap/$("#maxap").val()*1)+"(GFT)</td>";
 	tmpstr+="</tr>";
 	
