@@ -19,7 +19,10 @@
 </tbody>
 </table>
 <div>
-最大/現有AP:<input type="text" id="maxap" value='60'/><button id='stbt'> Start</button>
+最大/現有AP:<input type="text" id="maxap" value='60'/>
+目標戰功:<input type="text" id="maxpoint" value='7000000'/>
+<br>
+<button id='stbt'> Start</button>
 </div>
 結果:<BR>
 <DIV>
@@ -74,7 +77,16 @@ $("#stbt").click(function()
 		tmpstr+="</tr>";
 	}
 	tmpstr+="<tr><td>Total Cost:</td><td>"+sumcostt+"</td></tr>";
-	tmpstr+="<tr><td>Total Point:</td><td>"+bestc+"</td></tr>";
+	tmpstr+="<tr><td>Total Point:</td><td>"+bestc+"</td><td>"+(bestc*1.5)+"(FT)</td><td>"+(bestc*2.5)+"(GFT)</td></tr>";
+	var mapp=$("#maxpoint").val();
+	tmpstr+="<tr>";
+	tmpstr+="<td>Total AP:</td>";
+	tmpstr+="<td>"+((mapp/bestc)*sumcostt)+"|"+(((mapp/bestc)*sumcostt)/$("#maxap").val()*1)+"</td>";
+	tmpstr+="<td>"+((mapp/(bestc*1.5))*sumcostt)+"|"+(((mapp/(bestc*1.5))*sumcostt)/$("#maxap").val()*1)+"(FT)</td>";
+	tmpstr+="<td>"+((mapp/(bestc*2.5))*sumcostt)+"|"+(((mapp/(bestc*2.5))*sumcostt)/$("#maxap").val()*1)+"(GFT)</td>";
+	tmpstr+="</tr>";
+	
+	
 	tmpstr+="<tr><td>calcTime:</td><td>"+calat+"</td></tr>";
 $("#resmisionlist").html(tmpstr);
 });
