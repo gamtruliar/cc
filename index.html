@@ -63,7 +63,9 @@ $("#stbt").click(function()
 	{
 		nmission.push(tempa[$(this).val()]);
 	});
-	var maxapp=$("#maxap").val()*1+Math.floor($("#maxtime").val()/8)*1
+	var maxapp=$("#maxap").val()*1+Math.floor($("#maxtime").val()/8)*1;
+	var orgap=$("#maxap").val()*1;
+	var extraap=Math.floor($("#maxtime").val()/8)*1;
 	var bestarr=findsolution(maxapp,nmission);
 	$("#resmisionlist").html("");
 	var tmpstr="";
@@ -82,19 +84,39 @@ $("#stbt").click(function()
 		bestc=bestc+nmission[idd][1];
 		tmpstr+="</tr>";
 	}
-	tmpstr+="<tr><td>Total Cost:</td><td>"+sumcostt+"</td></tr>";
+	var neddexttime=(sumcostt-orgap)*8;
+	if (neddexttime<0)
+	{
+		neddexttime=0
+	}
+	tmpstr+="<tr><td>Total Cost:</td><td>"+sumcostt+"</td><td>(包含"+neddexttime+" 分鐘自動回復)</td></tr>";
 	tmpstr+="<tr><td>Total Point:</td><td>"+(bestc*$("#maxpow").val())+"</td><td>"+(bestc*$("#maxpow").val()*1.5)+"(FT)</td><td>"+(bestc*$("#maxpow").val()*2.5)+"(GFT)</td></tr>";
 	var mapp=$("#maxpoint").val();
 	tmpstr+="<tr>";
 	tmpstr+="<td>Total AP:</td>";
 	var tap=((mapp/(bestc*$("#maxpow").val()))*sumcostt);
-	tmpstr+="<td>"+Math.ceil(tap)+"|"+Math.ceil(tap/maxapp)+"</td>";
+	tbp=Math.ceil(tap/maxapp);
+	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(neddexttime*tbp)+")"+"</td>";
 	tap=((mapp/(bestc*$("#maxpow").val()*1.5))*sumcostt);
-	tmpstr+="<td>"+Math.ceil(tap)+"|"+Math.ceil(tap/maxapp)+"(FT)</td>";
+	tbp=Math.ceil(tap/maxapp);
+	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(neddexttime*tbp)+")"+"(FT)</td>";
 	tap=((mapp/(bestc*$("#maxpow").val()*2.5))*sumcostt);
-	tmpstr+="<td>"+Math.ceil(tap)+"|"+Math.ceil(tap/maxapp)+"(GFT)</td>";
+	tbp=Math.ceil(tap/maxapp);
+	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(neddexttime*tbp)+")"+"(GFT)</td>";
 	tmpstr+="</tr>";
 	
+	tmpstr+="<tr>";
+	tmpstr+="<td>不爆果所需時間:</td>";
+	tap=((mapp/(bestc*$("#maxpow").val()))*sumcostt);
+	tbp=Math.ceil(tap/maxapp);
+	tmpstr+="<td>"+mins2hourspmins(Math.ceil(tap)*8+neddexttime*tbp)+""+"</td>";
+	tap=((mapp/(bestc*$("#maxpow").val()*1.5))*sumcostt);
+	tbp=Math.ceil(tap/maxapp);
+	tmpstr+="<td>"+mins2hourspmins(Math.ceil(tap)*8+neddexttime*tbp)+""+"</td>";
+	tap=((mapp/(bestc*$("#maxpow").val()*2.5))*sumcostt);
+	tbp=Math.ceil(tap/maxapp);
+	tmpstr+="<td>"+mins2hourspmins(Math.ceil(tap)*8+neddexttime*tbp)+""+"</td>";
+	tmpstr+="</tr>";
 	
 	tmpstr+="<tr><td>calcTime:</td><td>"+calat+"</td></tr>";
 $("#resmisionlist").html(tmpstr);

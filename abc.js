@@ -58,6 +58,27 @@ calat=0;
 	app(maxcost,-1,[],arrs,arrOfAvailableMission);
 	return arrs;
 }
+function mins2hourspmins(mins)
+{
+	var dd=Math.floor(mins/(60*24));
+	var hh=Math.floor((mins%(60*24))/60);
+	if(dd==0)
+	{
+		if(hh==0)
+		{
+		return (mins%(60))+"分鐘";
+		}
+		else
+		{
+		return hh+"小時"+(mins%(60))+"分鐘";
+		}
+	}
+	else
+	{
+		return dd+"日"+hh+"小時"+(mins%(60))+"分鐘";
+	}
+	
+}
 
 
 
