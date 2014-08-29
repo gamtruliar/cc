@@ -21,6 +21,8 @@
 <div>
 最大/現有AP:<input type="text" id="maxap" value='60'/>
 <br>
+可忍受自動回復時間:<input type="text" id="maxtime" value='0'/>分鐘
+<br>
 目標戰功:<input type="text" id="maxpoint" value='7000000'/>
 <br>
 隊伍倍率:<input type="text" id="maxpow" value='1'/>1+倍武(0.5+0.?+0.?+.....)
@@ -61,7 +63,8 @@ $("#stbt").click(function()
 	{
 		nmission.push(tempa[$(this).val()]);
 	});
-	var bestarr=findsolution($("#maxap").val()*1,nmission);
+	var maxapp=$("#maxap").val()+Math.floor($("#maxtime").val/8)
+	var bestarr=findsolution(maxapp,nmission);
 	$("#resmisionlist").html("");
 	var tmpstr="";
 	var sumcostt=0;
@@ -85,11 +88,11 @@ $("#stbt").click(function()
 	tmpstr+="<tr>";
 	tmpstr+="<td>Total AP:</td>";
 	var tap=((mapp/(bestc*$("#maxpow").val()))*sumcostt);
-	tmpstr+="<td>"+Math.ceil(tap)+"|"+Math.ceil(tap/$("#maxap").val()*1)+"</td>";
+	tmpstr+="<td>"+Math.ceil(tap)+"|"+Math.ceil(tap/maxapp)+"</td>";
 	tap=((mapp/(bestc*$("#maxpow").val()*1.5))*sumcostt);
-	tmpstr+="<td>"+Math.ceil(tap)+"|"+Math.ceil(tap/$("#maxap").val()*1)+"(FT)</td>";
+	tmpstr+="<td>"+Math.ceil(tap)+"|"+Math.ceil(tap/maxapp)+"(FT)</td>";
 	tap=((mapp/(bestc*$("#maxpow").val()*2.5))*sumcostt);
-	tmpstr+="<td>"+Math.ceil(tap)+"|"+Math.ceil(tap/$("#maxap").val()*1)+"(GFT)</td>";
+	tmpstr+="<td>"+Math.ceil(tap)+"|"+Math.ceil(tap/maxapp)+"(GFT)</td>";
 	tmpstr+="</tr>";
 	
 	
