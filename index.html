@@ -63,7 +63,7 @@ $("#stbt").click(function()
 	{
 		nmission.push(tempa[$(this).val()]);
 	});
-	var maxapp=$("#maxap").val()+Math.floor($("#maxtime").val/8)
+	var maxapp=$("#maxap").val()*1+Math.floor($("#maxtime").val/8)*1
 	var bestarr=findsolution(maxapp,nmission);
 	$("#resmisionlist").html("");
 	var tmpstr="";
