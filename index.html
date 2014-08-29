@@ -25,6 +25,8 @@
 <br>
 目標戰功:<input type="text" id="maxpoint" value='7000000'/>
 <br>
+已有戰功:<input type="text" id="havepoint" value='0'/>
+<br>
 隊伍倍率:<input type="text" id="maxpow" value='1'/>1+倍武(0.5+0.?+0.?+.....)
 <br>
 <button id='stbt'> Start</button>
@@ -91,7 +93,7 @@ $("#stbt").click(function()
 	}
 	tmpstr+="<tr><td>Total Cost:</td><td>"+sumcostt+"</td><td>(包含"+neddexttime+" 分鐘自動回復)</td></tr>";
 	tmpstr+="<tr><td>Total Point:</td><td>"+(bestc*$("#maxpow").val())+"</td><td>"+(bestc*$("#maxpow").val()*1.5)+"(FT)</td><td>"+(bestc*$("#maxpow").val()*2.5)+"(GFT)</td></tr>";
-	var mapp=$("#maxpoint").val();
+	var mapp=$("#maxpoint").val()*1-$("#havepoint").val()*1;
 	tmpstr+="<tr>";
 	tmpstr+="<td>Total AP:</td>";
 	var tap=((mapp/(bestc*$("#maxpow").val()))*sumcostt);
