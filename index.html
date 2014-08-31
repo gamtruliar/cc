@@ -81,7 +81,7 @@ $("#stbt").click(function()
 		tmpstr+="<td>"+tempname[rid][0]+"</td>";
 		tmpstr+="<td>"+tempname[rid][1]+"</td>";
 		tmpstr+="<td>"+nmission[idd][0]+"</td>";
-		tmpstr+="<td>"+nmission[idd][1]+"</td>";
+		tmpstr+="<td>"+nmission[idd][1]*$("#maxpow").val()+"</td>";
 		sumcostt=sumcostt+nmission[idd][0];
 		bestc=bestc+nmission[idd][1];
 		tmpstr+="</tr>";
