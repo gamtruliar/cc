@@ -12,7 +12,7 @@
 <TABLE border=1 bgcolor="#FFFFFF">
 <thead>
 <tr bgcolor="#ff7f00">
-<th>地點</th><th>名</th><th>AP</th><th>合計戰功</th><th>戰功/AP</th><TH></th>
+<th>地點</th><th>名</th><th>AP</th><th>合計戰功</th><th>戰功/AP</th><th>p.s</th><TH></th>
 </tr>
 </thead>
 <tbody id="misionlist">
@@ -63,6 +63,7 @@ for(var i=0;i<tempa.length;i++)
 	tmpstr+="<td>"+ tempa[i][0]+"</td>";
 	tmpstr+="<td>"+ tempa[i][1]+"</td>";
 	tmpstr+="<td>"+ (tempa[i][1]/tempa[i][0])+"</td>";
+	tmpstr+="<td>"+ tempname[i][2]+"</td>";
 	tmpstr+="<td><input type='checkbox' name='tidchb[]' value="+i+" checked></td>";
 	tmpstr+="</tr>";
 }
