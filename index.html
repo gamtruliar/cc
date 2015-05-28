@@ -24,9 +24,9 @@
 <br>
 可忍受自動回復時間:<input type="text" id="maxtime" value='0'/>分鐘
 <br>
-目標戰功:<input type="text" id="maxpoint" value='8000000'/>
+目標戰功:<input type="text" id="maxpoint" value='800'/>萬
 <br>
-已有戰功:<input type="text" id="havepoint" value='0'/>
+已有戰功:<input type="text" id="havepoint" value='0'/>萬
 <br>
 隊伍倍率:<input type="text" id="maxpow" value='1'/>1+倍武(0.2+0.?+0.?+.....)<BR>
 特效B武:+<span id='weppspan'></span><input type="text" id="haveb" value='0' size='4' onchange="$('#maxpow').val(1+$('#haveb').val()*wepp+$('#have4s').val()*fsepp+$('#have5s').val()*fivesepp); "/><BR>
@@ -107,7 +107,7 @@ $("#stbt").click(function()
 	}
 	tmpstr+="<tr><td>Total Cost:</td><td>"+sumcostt+"</td><td>(包含"+neddexttime+" 分鐘自動回復)</td></tr>";
 	tmpstr+="<tr><td>Total Point:</td><td>"+(bestc*$("#maxpow").val())+"</td><td>"+(bestc*$("#maxpow").val()*ftpercent)+"(FT)</td><td>"+(bestc*$("#maxpow").val()*gftpercent)+"(GFT)</td></tr>";
-	var mapp=$("#maxpoint").val()*1-$("#havepoint").val()*1;
+	var mapp=$("#maxpoint").val()*10000-$("#havepoint").val()*10000;
 	tmpstr+="<tr>";
 	tmpstr+="<td>Total AP:</td>";
 	var tap=((mapp/(bestc*$("#maxpow").val()))*sumcostt);
