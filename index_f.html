@@ -1,13 +1,13 @@
 <html>
 <head>
-<title>迷宮山脈とゴブリンの王国のAP戰功計算</title>
+<title>自由騎2.0のAP戰功計算</title>
 <script src='jq.js'></script>
 <script src='data.js'></script>
 <script src='abc.js'></script>
 
 </head>
 <body bgcolor="#CFFFEE">
-<h1>迷宮山脈とゴブリンの王国のAP戰功計算</h1><h1>以下會得出最多戰功的組合:</h1>
+<h1>自由騎2.0のAP戰功計算</h1><h1>以下會得出最多戰功的組合:</h1>
 請選擇能打的戰功free任:
 <TABLE border=1 bgcolor="#FFFFFF">
 <thead>
@@ -24,14 +24,14 @@
 <br>
 可忍受自動回復時間:<input type="text" id="maxtime" value='0'/>分鐘
 <br>
-目標戰功:<input type="text" id="maxpoint" value='8000000'/>
+目標戰功:<input type="text" id="maxpoint" value='6000000'/>
 <br>
 已有戰功:<input type="text" id="havepoint" value='0'/>
 <br>
 隊伍倍率:<input type="text" id="maxpow" value='1'/>1+倍武(0.2+0.?+0.?+.....)<BR>
-特效B武:+<span id='weppspan'></span><input type="text" id="haveb" value='0' size='4' onchange="$('#maxpow').val(1+$('#haveb').val()*wepp+$('#have4s').val()*fsepp+$('#have5s').val()*fivesepp); "/><BR>
-4星倍角:+<span id='feppspan'></span><input type="text" id="have4s" value='0' size='4' onchange="$('#maxpow').val(1+$('#haveb').val()*wepp+$('#have4s').val()*fsepp+$('#have5s').val()*fivesepp); "/><BR>
-5星倍角:+<span id='fiveppspan'></span>(含Friend)<input type="text" id="have5s" value='0' size='4' onchange="$('#maxpow').val(1+$('#haveb').val()*wepp+$('#have4s').val()*fsepp+$('#have5s').val()*fivesepp); "/><BR>
+特效B武:+0.2<input type="text" id="haveb" value='0' size='4' onchange="$('#maxpow').val(1+$('#haveb').val()*0.2+$('#have4s').val()*0.5+$('#have5s').val()*1.5); "/><BR>
+4星倍角:+0.5<input type="text" id="have4s" value='0' size='4' onchange="$('#maxpow').val(1+$('#haveb').val()*0.2+$('#have4s').val()*0.5+$('#have5s').val()*1.5); "/><BR>
+5星倍角:+1.5(含Friend)<input type="text" id="have5s" value='0' size='4' onchange="$('#maxpow').val(1+$('#haveb').val()*0.2+$('#have4s').val()*0.5+$('#have5s').val()*1.5); "/><BR>
 FT倍率:<span id='ftpsp'></span>
 GFT倍率:<span id='gftpsp'></span>
 <br>
@@ -54,10 +54,6 @@ GFT倍率:<span id='gftpsp'></span>
 $("#misionlist").html("");
 $("#ftpsp").html(ftpercent);
 $("#gftpsp").html(gftpercent);
-$("#weppspan").html(wepp);
-$("#feppspan").html(fsepp);
-$("#fiveppspan").html(fivesepp);
-
 var tmpstr="";
 for(var i=0;i<tempa.length;i++)
 {
@@ -138,9 +134,8 @@ $("#stbt").click(function()
 $("#resmisionlist").html(tmpstr);
 });
 </script>
-<a href='index_f.html'> 自由騎2.0のAP戰功計算</a><br>
-<a href='index_b.html'> 秘宝の迷宮のAP戰功計算</a><br>
 <a href='index_p.html'> 小鶴姬の戰之年代記のAP戰功計算</a><br>
+<a href='index_b.html'> 秘宝の迷宮のAP戰功計算</a><br>
 <!-- 計數器原始碼開始 -->
 <script src="http://counter.i2yes.com/i2yesCounter.js" type="text/javascript"></script>
 <script type="text/javascript">document.write(i2yesCounter.render({ y:'counter',
