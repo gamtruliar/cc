@@ -81,6 +81,7 @@ $("#stbt").click(function()
 		nmission.push(tempa[$(this).val()]);
 	});
 	var maxapp=$("#maxap").val()*1+Math.floor($("#maxtime").val()/8)*1;
+	var maxapss=$("#maxapss").val()*1;
 	var orgap=$("#maxap").val()*1;
 	var extraap=Math.floor($("#maxtime").val()/8)*1;
 	var bestarr=findsolution(maxapp,nmission);
@@ -116,18 +117,23 @@ $("#stbt").click(function()
 	tbp=Math.ceil(tap/sumcostt);
 	tcp=Math.ceil(neddexttime*tbp/80);
 	tcp=tcp>maxapss?maxapss:tcp;
-	
-	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(neddexttime*tbp-tcp*80)+"+"+tcp+"果片)"+"</td>";
+	tdp=neddexttime*tbp-tcp*80;
+	tdp=tdp<0?0:tdp;
+	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(tdp)+"+"+tcp+"果片)"+"</td>";
 	tap=((mapp/(bestc*$("#maxpow").val()*ftpercent))*sumcostt);
 	tbp=Math.ceil(tap/sumcostt);
 	tcp=Math.ceil(neddexttime*tbp/80);
 	tcp=tcp>maxapss?maxapss:tcp;
-	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(neddexttime*tbp-tcp*80)+"+"+tcp+"果片)"+"(FT)</td>";
+	tdp=neddexttime*tbp-tcp*80;
+	tdp=tdp<0?0:tdp;
+	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(tdp)+"+"+tcp+"果片)"+"(FT)</td>";
 	tap=((mapp/(bestc*$("#maxpow").val()*gftpercent))*sumcostt);
 	tbp=Math.ceil(tap/sumcostt);
 	tcp=Math.ceil(neddexttime*tbp/80);
 	tcp=tcp>maxapss?maxapss:tcp;
-	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(neddexttime*tbp-tcp*80)+"+"+tcp+"果片)"+"(GFT)</td>";
+	tdp=neddexttime*tbp-tcp*80;
+	tdp=tdp<0?0:tdp;
+	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(tdp)+"+"+tcp+"果片)"+"(GFT)</td>";
 	tmpstr+="</tr>";
 	
 	tmpstr+="<tr>";
