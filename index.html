@@ -111,13 +111,14 @@ $("#stbt").click(function()
 	tmpstr+="<tr>";
 	tmpstr+="<td>Total AP:</td>";
 	var tap=((mapp/(bestc*$("#maxpow").val()))*sumcostt);
-	tbp=Math.ceil(tap*(sumcostt/orgap)/maxapp);
+	//p=tap/(o+x)
+	tbp=Math.ceil(tap/sumcostt);
 	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(neddexttime*tbp)+")"+"</td>";
 	tap=((mapp/(bestc*$("#maxpow").val()*ftpercent))*sumcostt);
-	tbp=Math.ceil(tap*(sumcostt/orgap)/maxapp);
+	tbp=Math.ceil(tap/sumcostt);
 	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(neddexttime*tbp)+")"+"(FT)</td>";
 	tap=((mapp/(bestc*$("#maxpow").val()*gftpercent))*sumcostt);
-	tbp=Math.ceil(tap*(sumcostt/orgap)/maxapp);
+	tbp=Math.ceil(tap/sumcostt);
 	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(neddexttime*tbp)+")"+"(GFT)</td>";
 	tmpstr+="</tr>";
 	
