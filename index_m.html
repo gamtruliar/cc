@@ -1,13 +1,13 @@
 <html>
 <head>
-<title>異界からの来訪者のAP戰功計算(踏破)</title>
+<title>迷宮山脈とゴブリンの王国のAP戰功計算</title>
 <script src='jq.js'></script>
 <script src='data.js'></script>
 <script src='abc.js'></script>
 
 </head>
 <body bgcolor="#CFFFEE">
-<h1>異界からの来訪者のAP戰功計算(踏破)</h1><h1>以下會得出最多戰功的組合:</h1>
+<h1>迷宮山脈とゴブリンの王国のAP戰功計算</h1><h1>以下會得出最多戰功的組合:</h1>
 請選擇能打的戰功free任:
 <TABLE border=1 bgcolor="#FFFFFF">
 <thead>
@@ -69,11 +69,7 @@ for(var i=0;i<tempa.length;i++)
 	tmpstr+="<td>"+ tempa[i][1]+"</td>";
 	tmpstr+="<td>"+ (tempa[i][1]/tempa[i][0])+"</td>";
 	tmpstr+="<td>"+ tempname[i][2]+"</td>";
-	if(i==tempa.length-1){
 	tmpstr+="<td><input type='checkbox' name='tidchb[]' value="+i+" checked></td>";
-	}else{
-	tmpstr+="<td><input type='checkbox' name='tidchb[]' value="+i+" ></td>";
-	}
 	tmpstr+="</tr>";
 }
 $("#misionlist").html(tmpstr);
@@ -157,7 +153,6 @@ $("#stbt").click(function()
 $("#resmisionlist").html(tmpstr);
 });
 </script>
-<a href='index_m.html'> 迷宮山脈とゴブリンの王国のAP戰功計算</a><br>
 <a href='index_f.html'> 自由騎2.0のAP戰功計算</a><br>
 <a href='index_b.html'> 秘宝の迷宮のAP戰功計算</a><br>
 <a href='index_p.html'> 小鶴姬の戰之年代記のAP戰功計算</a><br>
