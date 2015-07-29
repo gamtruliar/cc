@@ -21,7 +21,6 @@
 </table>
 <div>
 最大/現有AP:<input type="text" id="maxap" value='80'/>
-果片數目:<input type="text" id="maxapss" value='10'/>
 <br>
 可忍受自動回復時間:<input type="text" id="maxtime" value='0'/>分鐘
 <br>
@@ -85,7 +84,7 @@ $("#stbt").click(function()
 		nmission.push(tempa[$(this).val()]);
 	});
 	var maxapp=$("#maxap").val()*1+Math.floor($("#maxtime").val()/8)*1;
-	var maxapss=$("#maxapss").val()*1;
+	//var maxapss=$("#maxapss").val()*1;
 	var orgap=$("#maxap").val()*1;
 	var extraap=Math.floor($("#maxtime").val()/8)*1;
 	var bestarr=findsolution(maxapp,nmission);
@@ -118,26 +117,23 @@ $("#stbt").click(function()
 	tmpstr+="<td>Total AP:</td>";
 	var tap=((mapp/(bestc*$("#maxpow").val()))*sumcostt);
 	//p=tap/(o+x)
-	tbp=Math.ceil(tap/sumcostt);
-	tcp=Math.ceil(neddexttime*tbp/80);
-	tcp=tcp>maxapss?maxapss:tcp;
-	tdp=neddexttime*tbp-tcp*80;
+	tbp=Math.ceil(tap/maxapp);
+	
+	tdp=neddexttime*tbp;
 	tdp=tdp<0?0:tdp;
-	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(tdp)+"+"+tcp+"果片)"+"</td>";
+	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(tdp)+")"+"</td>";
 	tap=((mapp/(bestc*$("#maxpow").val()*ftpercent))*sumcostt);
-	tbp=Math.ceil(tap/sumcostt);
-	tcp=Math.ceil(neddexttime*tbp/80);
-	tcp=tcp>maxapss?maxapss:tcp;
-	tdp=neddexttime*tbp-tcp*80;
+	tbp=Math.ceil(tap/maxapp);
+	
+	tdp=neddexttime*tbp;
 	tdp=tdp<0?0:tdp;
-	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(tdp)+"+"+tcp+"果片)"+"(FT)</td>";
+	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(tdp)+")"+"(FT)</td>";
 	tap=((mapp/(bestc*$("#maxpow").val()*gftpercent))*sumcostt);
-	tbp=Math.ceil(tap/sumcostt);
-	tcp=Math.ceil(neddexttime*tbp/80);
-	tcp=tcp>maxapss?maxapss:tcp;
-	tdp=neddexttime*tbp-tcp*80;
+	tbp=Math.ceil(tap/maxapp);
+	
+	tdp=neddexttime*tbp;
 	tdp=tdp<0?0:tdp;
-	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(tdp)+"+"+tcp+"果片)"+"(GFT)</td>";
+	tmpstr+="<td>"+Math.ceil(tap)+"|"+tbp+"果(+"+mins2hourspmins(tdp)+")"+"(GFT)</td>";
 	tmpstr+="</tr>";
 	
 	tmpstr+="<tr>";
